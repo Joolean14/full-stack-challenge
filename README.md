@@ -148,7 +148,7 @@ WHAT WILL BE EVALUATED
 5. Responsive
 
   -  Bootstrap card templates --> https://getbootstrap.com/docs/5.0/examples/album/
-   - Integrar Handlebars
+   - Integrate Handlebars
 
 6. Front-end in React +++
 
