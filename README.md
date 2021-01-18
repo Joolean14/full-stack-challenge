@@ -1,73 +1,155 @@
-## Início
+WHAT WE LOOK FOR:
+2 years+ experienced full stack developers who love music and want to join a team of experienced Music industry professionals to maintain and develop new tools for Artists, Music Labels, Songwriters and Music Publishers.
+Required Technical Knowledge:
 
-Bem vindo ao mundo da música!
+    PHP / JS
+    Laravel 7.0+ / Express JS
+    Angular 8+ / React JS
+    AWS
+    SQL / MySQL
 
-Atualmente temos a necessidade de consumir os dados de faixas musicais através do código ISRC, que é uma das coisas mais importantes na indústria fonográfica.
+Required Non-Technical Knowledge:
 
-Segundo [Abramus](https://www.abramus.org.br/musica/isrc/), ISRC (International Standard Recording Code ou Código de Gravação Padrão Internacional) é um padrão internacional de código para identificar de forma única as gravações (faixas).
+    Comfortable to communicate in English (Written and/or spoken)
 
-Ele funciona como um código de barras da faixa.
+It’s a Plus if you:
 
+    Have experience working in (music) copyright companies/projects.
+    Have experience working with entertainment/music apps APIs (i.e. YouTube, Deezer, Spotify, Apple Music, etc.).
+    Have previous experience with music rights management
+    Speak/Write Spanish and Portuguese
 
-## Problema
+If you are interested, please take a look in our full-stack-challenge and send a résumé to ithires@onerpm.com and diego@onerpm.com
 
-Durante o fechamento de contrato com um produtor, foram informados 10 ISRC's que não constam em nossas bases de dados, que seguem abaixo:
+ONErpm is an equal opportunity employer encouraging diversity in the workplace. All qualified applicants will receive consideration for employment without regard to race, color, national origin, gender, age, religion, disability, sexual orientation, or veteran status, or any other status or characteristic protected by law.
 
-* US7VG1846811
-* US7QQ1846811
-* BRC310600002
-* BR1SP1200071
-* BR1SP1200070
-* BR1SP1500002
-* BXKZM1900338
-* BXKZM1900345
-* QZNJX2081700
-* QZNJX2078148
+---
 
-Precisamos obter e exibir os seguintes dados:
+Once you have sent the documentation please proceed to complete the following test and submit to ithires@onerpm.com and diego@onerpm.com
 
-* Thumb do álbum
-* Data de lançamento
-* Título da faixa
-* Lista dos artistas da faixa
-* Duração da faixa em minutos e segundos (mm:ss)
-* Player com prévia do áudio
-* Link para a página da faixa no Spotify
-* Sinalização dizendo se a faixa está ou não disponível no Brasil (BR)
+---
 
-Por decisão técnica, temos a necessidade de guardar estas informações em um banco de dados. Para isso, fique livre para criar a estrutura necessária para guardar as informações que achar pertinente das faixas.
+Welcome to the world of music tech.
 
-Uma vez armazenados os dados, precisamos exibí-los através de uma webpage pública, ordenados por título da faixa de forma alfabética.
+Currently, we need to consume data from music tracks using the ISRC code, this is one of the most important things in the music industry.
 
+The ISRC (International Standard Recording Code) is an international standard code for the unique identification of recordings (tracks). It resembles a barcode a sound recording.
 
-## Requisitos
+PROBLEM:
 
-* Faça um fork deste repositório e abra um PR quando estiver finalizado.
-* O backend deve ser feito no framework Laravel 7.0 ou superior.
-* O banco de dados deve ser MySQL.
-* A página deve ser responsiva para atender todos os tipos de dispositivos.
-* Use a API do Spotify: [https://developer.spotify.com/](https://developer.spotify.com/) para coletar os dados das faixas.
+After closing a contract with a music producer, he provided 10 ISRCs that were not included in our databases, these are shown below:
 
+    US7VG1846811
+    US7QQ1846811
+    BRC310600002
+    BR1SP1200071
+    BR1SP1200070
+    BR1SP1500002
+    BXKZM1900338
+    BXKZM1900345
+    QZNJX2081700
+    QZNJX2078148
 
-## Diferencial
+We need to gather and publish the following metadata associated to these ISRC’s.
 
-* Desenvolver o frontend no Angular 8 ou superior.
-* Desenvolver testes unitários e de integração.
+    Thumbnail
+    Release date
+    Album Title
+    Album Artist(s)
+    Length in minutes and seconds (mm:ss)
+    Player with audio preview
+    Spotify’s Album Link
+    Signal whether the album is available in Brazil or not.
 
+From a tech point of view, we need to store this information in a database. To do this, feel free to create the necessary structure to store the information you find relevant from the tracks.
 
-## O que será avaliado
+Once the data is stored, we need to display it through a public webpage, alphabetically ordered by track title.
 
-* Fidelidade às instruções.
-* Padrões de projeto.
-* Clean Code e boas práticas.
-* Boas práticas de versionamento.
+REQUIREMENTS
 
+-Fork this repository and open a PR when it is finished.
 
-## Perfil que buscamos
+-The backend must be done in the Laravel 7.0 or higher framework.
 
-* Comunicativo
-* Autodidata
-* Automotivado
-* Curioso
-* Gostar de trabalhar em equipe
-* Compromissado
+-The database must be MySQL.
+
+-The page must be responsive to suit all types of devices.
+
+-Use the Spotify API: https://developer.spotify.com/ to collect track data.
+
+PLUS
+
+- Develop frontend in Angular 8 or later.
+
+- Test single operations and integrations
+
+WHAT WILL BE EVALUATED
+
+-Fidelity to instructions.
+
+-Design patterns.
+
+-Clean Code and good practices.
+
+-Good versioning practices.
+
+## To-dos
+
+1. Tests +++
+
+   - Check if tests are too hard to do.
+   - Unit tests and Integration tests.
+
+2. Create db schema.
+
+   Thumbnail _BLOB_
+   Release date _Date_
+   Album Title _VARCHAR_
+   Album Artist(s) _VARCHAR_
+   Length in minutes and seconds (mm:ss) _TIME_
+   Player with audio preview posiblemente es un _VARCHAR_ ???
+   Spotify’s Album Link _VARCHAR_
+   Signal whether the album is available in Brazil or not. _BOOLEAN_
+
+   CREATE TABLE tracks (
+   id INT NOT NULL AUTO_INCREMENT,     
+   thumbnail BLOB,
+   release_date DATE,
+   album_title VARCHAR(255),
+   album_artists VARCHAR(255),
+   length TIME,
+   audio_preview BLOB,
+   album_link VARCHAR(255),
+   available_in_brazil BOOLEAN,
+   PRIMARY KEY (id)
+   );
+
+   Todo esto depende de API de spotify.
+
+3. Create database in MySQL.
+
+4. Create backend in Express JS
+
+   - Connect to DB.
+   - Connect to EJS or Handlebars.
+   - FETCH data from https://developer.spotify.com/ How to use the API??? START HERE !
+
+     - http://jsfiddle.net/JMPerez/0u0v7e1b/
+     - https://developer.spotify.com/console/get-search-item/
+     - Get your auth token to use the web console.
+       https://developer.spotify.com/documentation/general/guides/authorization-guide/
+
+     - https://isrcsearch.ifpi.org/#!/search?isrcCode=US7VG1846811&tab=lookup&showReleases=0&start=0&number=10
+
+   - Store in db in AWS.
+   - Routes :
+     - '/' display data alphabetically ordered my track title.
+
+5. Responsive
+
+  -  Bootstrap card templates --> https://getbootstrap.com/docs/5.0/examples/album/
+   - Integrar Handlebars
+
+6. Front-end in React +++
+
+   - Check if connecting to Express is too hard to do.
